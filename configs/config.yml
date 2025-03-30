@@ -1,6 +1,20 @@
+# 应用相关
+app:
+  APP_NAME: "FANK_BLOG"
+  APP_HOST: "localhost"
+  APP_PORT: "8080"
 database:
   DB_NAME: "fank_db"
   DB_HOST: "127.0.0.1"
   DB_PORT: "3306"
   DB_USER: "root"
   DB_PSW: "8888.216"
+
+# 日志相关
+#log:
+#  LOG_FILE_PATH: ".logs/"
+#  LOG_FILE_NAME: "app.log"
+#  LOG_TIMESTAMP_FMT: "2006-01-02 15:04:05"
+#  LOG_MAX_AGE: 72
+#  LOG_ROTATION_TIME: 24
+#  LOG_LEVEL: "INFO"

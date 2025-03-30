@@ -3,6 +3,8 @@ package cmd
 import (
 	"Fank/configs"
 	"Fank/internal/db"
+	"Fank/internal/middleware"
+	"fmt"
 	"github.com/labstack/echo/v4"
 	"log"
 )
@@ -18,8 +20,10 @@ func Start() {
 	app := echo.New()
 	//app.HideBanner = true
 
+	middleware.InitMiddleware(app)
+
 	db.New(config)
 
-	//app.Logger.Fatal(app.Start(fmt.Sprintf()))
+	app.Logger.Fatal(app.Start(fmt.Sprintf("%s:%s", config.AppConfig.AppHost, config.AppConfig.AppPort)))
 
 }

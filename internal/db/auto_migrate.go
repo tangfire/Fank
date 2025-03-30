@@ -2,6 +2,7 @@ package db
 
 import (
 	"Fank/internal/global"
+	"Fank/internal/model"
 	"log"
 )
 
@@ -10,5 +11,12 @@ func autoMigrate() {
 		log.Fatal("数据库初始化失败，无法执行自动迁移...")
 	}
 
-	global.DB.AutoMigrate()
+	err := global.DB.AutoMigrate(model.GetAllModels()...)
+
+	if err != nil {
+		log.Fatalf("autoMigrate err: %v", err)
+	}
+
+	log.Println("autoMigrate success")
+	global.SysLog.Infof("autoMigrate success")
 }
